@@ -1,6 +1,7 @@
+```yaml
 name: Build Windows Installer
 
-"on":
+on:
   push:
     tags:
       - 'v*.*.*'
@@ -26,7 +27,7 @@ jobs:
         run: npm install
 
       - name: Build Windows Installer
-        run: npm run dist
+        run: npm run dist -- --publish=never
 
       - name: Upload Setup.exe
         uses: actions/upload-artifact@v4
@@ -41,3 +42,4 @@ jobs:
           gh release create "${{ github.ref_name }}" dist/*-Setup-*.exe --title "نظام متابعة الطرق والقطاعات ${{ github.ref_name }}" --generate-notes
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+```
