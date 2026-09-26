@@ -1,0 +1,58 @@
+{
+  "name": "roads-sectors-system",
+  "version": "1.0.0",
+  "description": "نظام متابعة الطرق والقطاعات",
+  "main": "main.js",
+  "author": "Roads & Sectors System",
+  "scripts": {
+    "start": "electron .",
+    "dist": "electron-builder --win nsis",
+    "dist:installer": "electron-builder --win nsis"
+  },
+  "devDependencies": {
+    "electron": "^38.1.0",
+    "electron-builder": "^26.16.1",
+    "electron-updater": "^6.6.2"
+  },
+  "build": {
+    "appId": "com.roadssectors.system",
+    "productName": "نظام متابعة الطرق والقطاعات",
+    "artifactName": "Tarek2025-Setup-${version}-${arch}.${ext}",
+    "asar": true,
+    "files": [
+      "main.js",
+      "preload.js",
+      "app/**/*"
+    ],
+    "directories": {
+      "output": "dist"
+    },
+    "win": {
+      "target": [
+        {
+          "target": "nsis",
+          "arch": [
+            "x64"
+          ]
+        }
+      ],
+      "verifyUpdateCodeSignature": false
+    },
+    "nsis": {
+      "oneClick": false,
+      "allowToChangeInstallationDirectory": true,
+      "perMachine": false,
+      "deleteAppDataOnUninstall": false,
+      "createDesktopShortcut": true,
+      "createStartMenuShortcut": true,
+      "shortcutName": "نظام متابعة الطرق والقطاعات"
+    },
+    "publish": [
+      {
+        "provider": "github",
+        "owner": "minaibrahimfawzy-droid",
+        "repo": "Tarek2025"
+      }
+    ]
+  }
+}
