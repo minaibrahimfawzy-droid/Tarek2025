@@ -1,7 +1,6 @@
-yaml
 name: Build Windows Installer
 
-on:
+"on":
   push:
     tags:
       - 'v*.*.*'
